@@ -3,6 +3,6 @@ COPY . .
 RUN mvn clean package -DskipTests
 
 FROM openjdk:17.0.2-jdk-slim
-COPY --from=build/target/RoleBasedAuthentication-main-0.0.1-SNAPSHOT.jar RoleBasedAuthentication-main.jar
+COPY --from=build /target/RoleBasedAuthentication-main-0.0.1-SNAPSHOT.jar RoleBasedAuthentication-main.jar
 EXPOSE 8085
-ENTRYPOINT["java","-jar","RoleBasedAuthentication-main.jar"]
+ENTRYPOINT ["java","-jar","RoleBasedAuthentication-main.jar"]
